@@ -4,8 +4,8 @@ import axios from "axios";
 
 export const RegimensService = {
   getRegimens(): Promise<Regimen[]> {
-    return axios
-      .get("http://localhost:8080/regimens.json")
-      .then((res: any) => res);
+    return axios.get("http://localhost:8080/regimens.json").then((res: any) => {
+      return res.data;
+    });
   },
 };
