@@ -1,9 +1,17 @@
-import { Regimen } from "@/domain/entities/Regimen";
 import { defineStore } from "pinia";
+import { RegimensService } from "@/services/regimens.service";
+import { Regimen } from "@/domain/entities/Regimen";
 
-export const useStore = defineStore("beers", {
+export const useRegimensStore = defineStore("beers", {
   state: () => ({
     regimens: <Regimen[]>[],
     regimenSelected: <Regimen | null>null,
   }),
+  actions: {
+    getRegimens() {
+      RegimensService.getRegimens().then((res: any) => {
+        this.regimens = res;
+      });
+    },
+  },
 });

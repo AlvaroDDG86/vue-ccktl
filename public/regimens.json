@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Sólo Alojamiento",
+    "includes": ["Sin régimen", "Botella de agua de bienvenida"]
+  },
+  {
+    "title": "Alojamiento y Desayuno",
+    "includes": ["Desayuno buffet completo"]
+  },
+  {
+    "title": "Media Pensión",
+    "includes": ["Desayuno buffet completo", "Cena buffet", "No incluye"]
+  },
+  {
+    "title": "Todo incluido",
+    "includes": [
+      "Dispondrás de comida y bebida todo el día y durante toda tu estancia",
+      "Restaurante buffet",
+      "Snack Bar",
+      "Servicio de bares(marcas nacionales)"
+    ]
+  },
+  {
+    "title": "Unlimited Services",
+    "includes": [
+      "Restaurante buffet con bebitas premiun",
+      "Restaurante a la carta (una cena por estancia)",
+      "Snack Bar con bebidas premiun",
+      "Minibar incluido",
+      "Acceso a SPA y 45 de masaje por persona",
+      "Actividades deportivas (Aquáticas sin motor)",
+      "Caja fuerte",
+      "Parking gratuito",
+      "Lavandería"
+    ]
+  }
+]
