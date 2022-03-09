@@ -28,13 +28,13 @@ export default defineComponent({
     RegimenSelectable,
   },
   setup() {
-    const active = ref("");
+    const active = ref("0");
     const regimensStore = useRegimensStore();
     regimensStore.getRegimens();
     const regimens = computed((): Regimen[] => regimensStore.regimens);
     const updateActiveHandler = (activePlan: any) => {
       active.value = activePlan;
-    }
+    };
 
     return {
       active,
@@ -47,11 +47,15 @@ export default defineComponent({
 <style lang="scss">
 .regimens {
   width: 100vw;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   &__container {
     display: flex;
     justify-content: space-around;
-    align-content: center;
+    align-content: stretch;
     flex-wrap: wrap;
   }
 }
