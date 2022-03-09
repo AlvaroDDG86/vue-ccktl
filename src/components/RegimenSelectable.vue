@@ -95,9 +95,12 @@ const updateActiveHandler = () => {
   &__list {
     padding-left: 10px;
     font-size: $font-xs;
+    font-family: $font-second;
+    font-weight: $font-mid;
 
     & > li {
       text-align: left;
+      margin-bottom: 8px;
     }
   }
 

@@ -54,7 +54,7 @@ export default defineComponent({
 
   &__container {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-content: stretch;
     flex-wrap: wrap;
   }
