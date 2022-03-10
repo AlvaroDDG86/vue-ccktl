@@ -66,7 +66,7 @@ export default defineComponent({
 
   &__container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-content: stretch;
     flex-wrap: wrap;
   }

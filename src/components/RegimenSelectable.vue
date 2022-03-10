@@ -137,4 +137,22 @@ const updateActiveHandler = () => {
     opacity: 0.7;
   }
 }
+@media only screen and (max-width: $mobile) {
+  .regimen-selectable {
+    width: 250px;
+    min-height: 400px;
+    &__list {
+      display: initial;
+    }
+  }
+}
+@media screen and (min-width: $mobile) and (max-width: $tablet) {
+  .regimen-selectable {
+    width: 150px;
+    min-height: 200px;
+    &__list {
+      display: none;
+    }
+  }
+}
 </style>
