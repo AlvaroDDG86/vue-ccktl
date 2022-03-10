@@ -1,11 +1,10 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Regimens</router-link> |
-    <router-link to="/beers">Beers</router-link>
-  </div>
+  <TheHeader />
   <router-view />
 </template>
-
+<script lang="ts" setup>
+import TheHeader from '@/components/TheHeader.vue'
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -17,6 +16,8 @@
 
 #nav {
   padding: 30px;
+  position: fixed;
+  top: 0;
 
   a {
     font-weight: bold;
