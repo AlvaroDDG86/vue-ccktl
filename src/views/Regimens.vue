@@ -14,6 +14,9 @@
         @onUpdateActive="updateActiveHandler"
       />
     </div>
+    <p v-if="regimenSelected === null" class="regimens__feedback">
+      Please select a regimen
+    </p>
   </div>
 </template>
 
@@ -21,24 +24,29 @@
 import { defineComponent, computed, ref } from "vue";
 import { useRegimensStore } from "@/store/regimens.store";
 import { Regimen } from "@/domain/entities/Regimen";
-import RegimenSelectable from '@/components/RegimenSelectable.vue'
+import RegimenSelectable from "@/components/RegimenSelectable.vue";
 export default defineComponent({
   name: "Regimens",
   components: {
     RegimenSelectable,
   },
   setup() {
-    const active = ref("0");
+    const active = ref("");
     const regimensStore = useRegimensStore();
     regimensStore.getRegimens();
     const regimens = computed((): Regimen[] => regimensStore.regimens);
-    const updateActiveHandler = (activePlan: any) => {
+    const regimenSelected = computed(
+      (): Regimen | null => regimensStore.regimenSelected
+    );
+    const updateActiveHandler = (activePlan: string) => {
       active.value = activePlan;
+      regimensStore.setActiveRegimen(active.value);
     };
 
     return {
       active,
       regimens,
+      regimenSelected,
       updateActiveHandler,
     };
   },
@@ -46,17 +54,31 @@ export default defineComponent({
 </script>
 <style lang="scss">
 .regimens {
+  padding-top: 5em;
   width: 100vw;
   min-width: 300px;
+  height: 100vh;
+  overflow: scroll;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: $color-gray-extra-light;
 
   &__container {
     display: flex;
     justify-content: flex-start;
     align-content: stretch;
     flex-wrap: wrap;
+  }
+
+  &__feedback {
+    padding: 0.5em 1em;
+    text-align: center;
+    margin: 0.5em 0;
+    font-weight: $font-bold;
+    color: $color-blue-mid-light;
+    font-size: $font-m;
+    background: $color-gray-light;
   }
 }
 </style>

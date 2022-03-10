@@ -13,5 +13,8 @@ export const useRegimensStore = defineStore("beers", {
         this.regimens = res;
       });
     },
+    setActiveRegimen(index: string) {
+      this.regimenSelected = this.regimens[parseInt(index)];
+    },
   },
 });

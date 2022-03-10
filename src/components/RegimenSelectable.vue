@@ -2,18 +2,19 @@
   <div
     class="regimen-selectable"
     :class="{ 'regimen-selectable--active': isActive }"
+    @click.prevent="updateActiveHandler"
   >
     <h2 class="regimen-selectable__title">
       {{ title }}
     </h2>
-    <div class="regimens__separator"></div>
+    <div class="regimen-selectable__separator"></div>
     <ul class="regimen-selectable__list">
       <li v-for="(include, index) in includes" :key="`include_${index}`">
         {{ include }}
       </li>
     </ul>
     <footer class="regimen-selectable__footer">
-      <button class="regimen-selectable__button" @click="updateActiveHandler">
+      <button class="regimen-selectable__button">
         <input
           type="radio"
           :name="name"
@@ -62,16 +63,16 @@ const updateActiveHandler = () => {
 .regimen-selectable {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-around;
   width: 200px;
   min-height: 400px;
   margin: 5px;
-  padding: 5px 10px;
-  box-sizing: border-box;
-  border: solid 1px $color-blue-light;
+  padding: 0 1em 0.5em;
+  border: solid 2px $color-blue-light;
+  background: $color-white;
 
   &--active {
-    border: solid 1px $color-blue-mid;
+    border: solid 2px $color-blue-mid;
 
     .regimen-selectable__button {
       border: solid 1px $color-blue-mid;
@@ -82,19 +83,23 @@ const updateActiveHandler = () => {
   &__title {
     color: $color-blue-mid-light;
     font-weight: $font-bold;
-    font-size: $font-s;
+    font-size: $font-xs;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 4em;
   }
 
   &__separator {
     background-color: $color-blue-light;
-    width: 4rem;
+    width: 40%;
     height: 1px;
-    margin: auto;
+    margin: 0 auto 1em;
   }
 
   &__list {
     padding-left: 10px;
-    font-size: $font-xs;
+    font-size: $font-xxs;
     font-family: $font-second;
     font-weight: $font-mid;
 
